@@ -1,10 +1,8 @@
-# React Playground
+# AmyClapper.com
 
-Simple React playground that allows you to write ES6 style JSX and styles with
-LESS.
+Static portfolio website made with React.
 
 Install and start:
 - `npm install`
-- `bower install`
 - `npm start`
 - http://localhost:3333
