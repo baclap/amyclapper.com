@@ -1,21 +1,50 @@
-@import 'colors';
+@import 'mixins';
 
 body {
-	font-family: sans-serif;
-	margin: 100px;
-}
-
-.menu {
 	margin: 0;
 	padding: 0;
-	list-style: none;
+	font-family: sans-serif;
 }
 
-.menu-item {
-	display: inline-block;
-	padding: 10px;
+.home-blocks {
+	width: 1050px;
+	margin: 50px auto;
 
-	&.active {
-		background: #ccc;
+	.block {
+		float: left;
+		width: 300px;
+		height: 200px;
+		margin: 25px;
+		background: @grey;
+		.center-content();
+	}
+}
+
+.backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: @black;
+	opacity: 0.5;
+}
+
+.popup-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	.center-content();
+
+	.popup {
+		width: 500px;
+		height: 500px;
+		background: @grey;
+
+		.content {
+			width: 100%;
+		}
 	}
 }
