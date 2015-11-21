@@ -1,22 +1,41 @@
 @import 'mixins';
 
 body {
-	margin: 0;
-	padding: 0;
-	font-family: sans-serif;
+	font-family: sans-serif; // TODO replace with real font
+	font-size: 14px;
+}
+
+a {
+	color: @gold;
+	text-decoration: none;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+	background: url('/img/temp-bg.jpg'); // TODO replace with real image
+	background-size: cover;
+	.center-content();
 }
 
 .home-blocks {
-	width: 1050px;
+	width: 1200px;
 	margin: 50px auto;
 
 	.block {
+		box-sizing: border-box;
 		float: left;
-		width: 300px;
-		height: 200px;
+		width: 250px;
+		height: 180px;
 		margin: 25px;
-		background: @grey;
+		background: @white;
+		border: 12px solid @trans-white;
+		background-clip: padding-box;
+		font-size: 24px;
+		text-transform: uppercase;
+		text-align: center;
 		.center-content();
+		.shadow();
 	}
 }
 
@@ -41,10 +60,39 @@ body {
 	.popup {
 		width: 500px;
 		height: 500px;
-		background: @grey;
+		background: @white;
 
 		.content {
 			width: 100%;
 		}
 	}
+}
+
+.footer {
+	text-align: center;
+	text-transform: uppercase;
+	padding: 10px 0;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: @trans-white;
+	font-size: 18px;
+
+	.divider {
+		margin: 0 25px;
+	}
+}
+
+.header {
+	text-align: center;
+	text-transform: uppercase;
+	padding: 10px 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: @white;
+	font-size: 18px;
+	.shadow();
 }
