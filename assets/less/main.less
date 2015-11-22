@@ -1,8 +1,11 @@
 @import 'mixins';
 
 body {
-	font-family: sans-serif; // TODO replace with real font
+	.base-font();
 	font-size: 14px;
+	line-height: 1.2;
+	background: url('/img/temp-bg.jpg'); // TODO replace with real image
+	background-size: cover;
 }
 
 a {
@@ -10,89 +13,18 @@ a {
 	text-decoration: none;
 }
 
-.container {
-    width: 100vw;
-    height: 100vh;
-	background: url('/img/temp-bg.jpg'); // TODO replace with real image
-	background-size: cover;
-	.center-content();
-}
-
-.home-blocks {
-	width: 1200px;
-	margin: 50px auto;
-
-	.block {
-		box-sizing: border-box;
-		float: left;
-		width: 250px;
-		height: 180px;
-		margin: 25px;
-		background: @white;
-		border: 12px solid @trans-white;
-		background-clip: padding-box;
-		font-size: 24px;
-		text-transform: uppercase;
-		text-align: center;
-		.center-content();
-		.shadow();
-	}
-}
-
-.backdrop {
-	position: fixed;
-	top: 0;
-	left: 0;
+.layout-container {
 	width: 100vw;
-	height: 100vh;
-	background: @black;
-	opacity: 0.5;
-}
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 
-.popup-container {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	.center-content();
-
-	.popup {
-		width: 500px;
-		height: 500px;
-		background: @white;
-
-		.content {
-			width: 100%;
-		}
+	.layout-bar {
+		flex-shrink: 0;
 	}
-}
 
-.footer {
-	text-align: center;
-	text-transform: uppercase;
-	padding: 10px 0;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background: @trans-white;
-	font-size: 18px;
-
-	.divider {
-		margin: 0 25px;
+	.layout-content {
+		flex-grow: 1;
+		display: flex;
 	}
-}
-
-.header {
-	text-align: center;
-	text-transform: uppercase;
-	padding: 10px 0;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	background: @white;
-	font-size: 18px;
-	.shadow();
 }

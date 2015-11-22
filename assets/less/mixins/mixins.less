@@ -2,6 +2,31 @@
 @white: #fff;
 @gold: #AD8840;
 @trans-white: rgba(255, 255, 255, .75);
+@extra-small: ~"(max-width: 599px)";
+@small: ~"(max-width: 749px)";
+@medium: ~"(max-width: 1199px)";
+
+@font-face {
+    font-family: 'basictitlefont';
+    src: url('/fonts/basictitlefont.eot');
+    src: url('/fonts/basictitlefont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/basictitlefont.woff2') format('woff2'),
+         url('/fonts/basictitlefont.woff') format('woff'),
+         url('/fonts/basictitlefont.ttf') format('truetype'),
+         url('/fonts/basictitlefont.svg#basictitlefont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.brand-font() {
+    font-family: 'basictitlefont', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.base-font() {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 
 .center-content() {
     display: flex;

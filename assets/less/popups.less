@@ -1,0 +1,30 @@
+@import 'mixins';
+
+.backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: @black;
+	opacity: 0.5;
+}
+
+.popup-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	.center-content();
+
+	.popup {
+		width: 500px;
+		height: 500px;
+		background: @white;
+
+		.content {
+			width: 100%;
+		}
+	}
+}
