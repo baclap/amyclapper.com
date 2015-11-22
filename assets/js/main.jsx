@@ -46,7 +46,7 @@ class Popup extends Component {
         return (
             <div>
                 <div className="backdrop" />
-                <div onClick={e => this.props.history.goBack} className="popup-container">
+                <div onClick={e => this.props.history.goBack()} className="popup-container">
                     <div className="popup">
                         {this.props.children}
                     </div>
