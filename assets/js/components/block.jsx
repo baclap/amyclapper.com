@@ -6,7 +6,9 @@ import { Link } from 'react-router'
 export default class Block extends Component {
     render() {
         return (
-            <Link className="block" to={this.props.to}>{this.props.children}</Link>
+            <div className="block">
+                <Link to={this.props.to}>{this.props.children}</Link>
+            </div>
         )
     }
 }
