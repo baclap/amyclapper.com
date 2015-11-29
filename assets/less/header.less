@@ -62,7 +62,48 @@
 @media @small {
 	.header {
 		.nav {
-			display: none;
+			.fit(0, fixed);
+			z-index: @z-index-hidden;
+			background: @trans-black;
+			opacity: 0;
+			transition: opacity 0.2s ease-in-out;
+
+			ul {
+				background: @white;
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 100vh;
+				width: 300px;
+				transform: translateX(300px);
+				transition: all 0.2s ease-in-out;
+
+				li {
+					display: block;
+					padding: 25px;
+					margin-top: 10px;
+				}
+			}
+
+			&.open {
+				opacity: 1;
+
+				ul {
+					transform: translateX(0);
+				}
+			}
+
+			&.show-backdrop {
+				z-index: @z-index-mobile-menu-drawer;
+
+				ul {
+					.shadow();
+				}
+			}
+
+			.divider {
+				display: none;
+			}
 		}
 
 		.hamburger-wrap {

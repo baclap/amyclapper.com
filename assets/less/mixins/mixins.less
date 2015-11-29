@@ -2,9 +2,12 @@
 @white: #fff;
 @gold: #AD8840;
 @trans-white: rgba(255, 255, 255, .75);
+@trans-black: rgba(0, 0, 0, .23);
 @extra-small: ~"(max-width: 599px)";
 @small: ~"(max-width: 749px)";
 @medium: ~"(max-width: 1199px)";
+@z-index-hidden: -1;
+@z-index-mobile-menu-drawer: 1;
 
 @font-face {
     font-family: 'basictitlefont';
@@ -35,11 +38,11 @@
 }
 
 .shadow() {
-    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
 }
 
-.fit(@padding: 0) {
-    position: absolute;
+.fit(@padding: 0, @position: absolute) {
+    position: @position;
     top: @padding;
     right: @padding;
     bottom: @padding;

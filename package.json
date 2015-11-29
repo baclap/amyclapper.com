@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "alt": "^0.17.7",
-    "classnames": "^2.2.0",
+    "classnames": "^2.2.1",
     "history": "^1.12.5",
     "koa": "^0.21.0",
     "koa-logger": "^1.2.2",
