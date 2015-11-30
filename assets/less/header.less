@@ -12,7 +12,12 @@
 	}
 
 	.logo {
-		font-size: 60px;
+		line-height: 0;
+
+		img {
+			height: 60px;
+			width: auto;
+		}
 	}
 
 	.nav {
@@ -47,10 +52,10 @@
 
 @media @medium {
     .header {
-		padding: 10px 20px;
+		padding: 20px;
 
-		.logo {
-			font-size: 48px;
+		.logo img {
+			height: 48px;
 		}
 
 		.nav li {
@@ -116,8 +121,10 @@
 
 @media @extra-small {
 	.header {
-		.logo {
-			font-size: 34px;
+		padding: 10px 20px;
+
+		.logo img {
+			height: 28px;
 		}
 	}
 }

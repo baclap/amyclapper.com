@@ -53,7 +53,9 @@ export default class Header extends Component {
         return (
             <header className="header">
                 <span className="logo">
-                    <Link to="/">AmyClapper</Link>
+                    <Link to="/">
+                        <img src="/img/logo.svg" />
+                    </Link>
                 </span>
                 <nav onClick={e => this.handleNavClick(e)}
                     className={classnames([
