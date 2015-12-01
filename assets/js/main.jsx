@@ -10,14 +10,31 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 import React, { Component } from 'react'
 import { render, findDOMNode } from 'react-dom'
 import { Router, Route } from 'react-router'
+import { store } from './flux'
 
 class Main extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = store.getState()
+
+        this._update = this.update.bind(this)
+    }
+    componentDidMount() {
+        store.listen(this._update)
+    }
+    componentWillUnmount() {
+        store.unlisten(this._update)
+    }
+    update() {
+        this.setState(store.getState())
+    }
     render() {
         return (
             <div>
                 <div className="layout-container">
                     <div className="layout-bar">
-                        <Header />
+                        <Header mobileNavOpen={this.state.mobileNavOpen} />
                     </div>
                     <div className="layout-content">
                         <BlocksContainer>

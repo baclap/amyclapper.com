@@ -4,13 +4,13 @@ import React, { Component } from 'react'
 import { findDOMNode } from 'react-dom'
 import { Link } from 'react-router'
 import classnames from 'classnames'
+import { actions } from '../flux'
 
 export default class Header extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            drawerOpen: false,
             showDrawerBackdrop: false
         }
 
@@ -22,31 +22,27 @@ export default class Header extends Component {
     componentWillUnmount() {
         findDOMNode(this.refs.navUl).removeEventListener('transitionend', this._drawerTransitionEnd)
     }
+    componentWillReceiveProps(nextProps) {
+        if (!this.props.mobileNavOpen && nextProps.mobileNavOpen) {
+            this.setState({showDrawerBackdrop: true})
+        }
+    }
     drawerTransitionEnd() {
-        if (!this.state.drawerOpen && this.state.showDrawerBackdrop) {
+        if (!this.props.mobileNavOpen && this.state.showDrawerBackdrop) {
             this.setState({
                 showDrawerBackdrop: false
             })
         }
     }
     toggleDrawer() {
-        if (!this.state.drawerOpen) {
-            this.setState({
-                drawerOpen: true,
-                showDrawerBackdrop: true
-            })
-        } else {
-            this.setState({
-                drawerOpen: false
-            })
-        }
+        actions.toggleMobileNav()
     }
     handleNavClick(e) {
         if (
-            this.state.drawerOpen
+            this.props.mobileNavOpen
             && e.target.classList.contains('nav')
         ) {
-            this.setState({drawerOpen: false})
+            actions.closeMobileNav()
         }
     }
     render() {
@@ -61,7 +57,7 @@ export default class Header extends Component {
                     className={classnames([
                         'nav',
                         {
-                            'open': this.state.drawerOpen,
+                            'open': this.props.mobileNavOpen,
                             'show-backdrop': this.state.showDrawerBackdrop
                         }
                     ])}>
@@ -76,6 +72,9 @@ export default class Header extends Component {
                         <li className="divider">|</li>
                         <li>
                             <a href="#">Download Portfolio</a>
+                        </li>
+                        <li className="close">
+                            <a href="javascript:void(0)" onClick={e => this.toggleDrawer()}>Close</a>
                         </li>
                     </ul>
                 </nav>
