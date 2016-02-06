@@ -1,36 +1,36 @@
 @import 'mixins';
 
 body {
-	.base-font();
-	font-size: 14px;
-	line-height: 1.2;
-	background: url('/img/temp-bg.jpg'); // TODO replace with real image
-	background-size: cover;
+    .base-font();
+    font-size: 14px;
+    line-height: 1.2;
+    background: url('/img/temp-bg.jpg'); // TODO replace with real image
+    background-size: cover;
 }
 
 a {
-	color: @gold;
-	text-decoration: none;
+    color: @gold;
+    text-decoration: none;
 }
 
 .divider {
-	color: @black;
-	.base-font();
-	font-weight: 200;
+    color: @black;
+    .base-font();
+    font-weight: 200;
 }
 
 .layout-container {
-	width: 100vw;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
-	.layout-bar {
-		flex-shrink: 0;
-	}
+    .layout-bar {
+        flex-shrink: 0;
+    }
 
-	.layout-content {
-		flex-grow: 1;
-		display: flex;
-	}
+    .layout-content {
+        flex-grow: 1;
+        display: flex;
+    }
 }

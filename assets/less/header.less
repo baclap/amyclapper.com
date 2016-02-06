@@ -1,149 +1,149 @@
 @import 'mixins';
 
 .header {
-	display: flex;
-	padding: 20px 50px;
-	background: @white;
-	.shadow();
-	.brand-font();
+    display: flex;
+    padding: 20px 50px;
+    background: @white;
+    .shadow();
+    .brand-font();
 
-	.logo, .nav {
-		flex-grow: 1;
-	}
+    .logo, .nav {
+        flex-grow: 1;
+    }
 
-	.logo {
-		line-height: 0;
+    .logo {
+        line-height: 0;
 
-		img {
-			height: 60px;
-			width: auto;
-		}
-	}
+        img {
+            height: 60px;
+            width: auto;
+        }
+    }
 
-	.nav {
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		font-size: 20px;
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 20px;
 
-		li {
-			display: inline-block;
-			margin-left: 25px;
-		}
+        li {
+            display: inline-block;
+            margin-left: 25px;
+        }
 
-		.close {
-			display: none;
-		}
-	}
+        .close {
+            display: none;
+        }
+    }
 
-	.hamburger-wrap {
-		display: none;
+    .hamburger-wrap {
+        display: none;
 
-		.hamburger {
-			div {
-				width: 25px;
-				height: 2px;
-				background: @black;
-				margin-top: 5px;
+        .hamburger {
+            div {
+                width: 25px;
+                height: 2px;
+                background: @black;
+                margin-top: 5px;
 
-				&:first-child {
-					margin-top: 0;
-				}
-			}
-		}
-	}
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
 }
 
 @media @medium {
     .header {
-		padding: 20px;
+        padding: 20px;
 
-		.logo img {
-			height: 48px;
-		}
+        .logo img {
+            height: 48px;
+        }
 
-		.nav li {
-			margin-left: 15px;
-		}
-	}
+        .nav li {
+            margin-left: 15px;
+        }
+    }
 }
 
 @media @small {
-	.header {
-		.nav {
-			.fit(0, fixed);
-			z-index: @z-index-hidden;
-			background: @trans-black;
-			opacity: 0;
-			transition: opacity 0.2s ease-in-out;
+    .header {
+        .nav {
+            .fit(0, fixed);
+            z-index: @z-index-hidden;
+            background: @trans-black;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
 
-			ul {
-				background: @white;
-				position: absolute;
-				top: 0;
-				right: 0;
-				height: 100vh;
-				width: 300px;
-				padding-top: 25px;
-				transform: translateX(300px);
-				transition: all 0.2s ease-in-out;
+            ul {
+                background: @white;
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 300px;
+                padding-top: 25px;
+                transform: translateX(300px);
+                transition: all 0.2s ease-in-out;
 
-				li {
-					display: block;
-					padding: 25px;
-					margin-top: 10px;
-				}
+                li {
+                    display: block;
+                    padding: 25px;
+                    margin-top: 10px;
+                }
 
-				.close {
-					font-size: 16px;
-					position: absolute;
-					top: 20px;
-					right: 20px;
-					margin: 0;
-					padding: 0;
-					.center-content();
+                .close {
+                    font-size: 16px;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    margin: 0;
+                    padding: 0;
+                    .center-content();
 
-					a {
-						color: @black;
-					}
-				}
-			}
+                    a {
+                        color: @black;
+                    }
+                }
+            }
 
-			&.open {
-				opacity: 1;
+            &.open {
+                opacity: 1;
 
-				ul {
-					transform: translateX(0);
-				}
-			}
+                ul {
+                    transform: translateX(0);
+                }
+            }
 
-			&.show-backdrop {
-				z-index: @z-index-mobile-menu-drawer;
+            &.show-backdrop {
+                z-index: @z-index-mobile-menu-drawer;
 
-				ul {
-					.shadow();
-				}
-			}
+                ul {
+                    .shadow();
+                }
+            }
 
-			.divider {
-				display: none;
-			}
-		}
+            .divider {
+                display: none;
+            }
+        }
 
-		.hamburger-wrap {
-			display: flex;
-			align-items: center;
-			justify-content: flex-end;
-		}
-	}
+        .hamburger-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
 }
 
 @media @extra-small {
-	.header {
-		padding: 10px 20px;
+    .header {
+        padding: 10px 20px;
 
-		.logo img {
-			height: 28px;
-		}
-	}
+        .logo img {
+            height: 28px;
+        }
+    }
 }
