@@ -4,6 +4,7 @@ import Block from './components/block'
 import BlocksContainer from './components/blocks-container'
 import Footer from './components/footer'
 import Header from './components/header'
+import Popup from './components/popup'
 
 import classnames from 'classnames'
 import createBrowserHistory from 'history/lib/createBrowserHistory'
@@ -53,21 +54,6 @@ class Main extends Component {
                     </div>
                 </div>
                 {this.props.children}
-            </div>
-        )
-    }
-}
-
-class Popup extends Component {
-    render() {
-        return (
-            <div>
-                <div className="backdrop" />
-                <div onClick={e => this.props.history.goBack()} className="popup-container">
-                    <div className="popup">
-                        {this.props.children}
-                    </div>
-                </div>
             </div>
         )
     }
