@@ -11,32 +11,15 @@ import classnames from 'classnames'
 import React, { Component } from 'react'
 import { render, findDOMNode } from 'react-dom'
 import { Router, Route } from 'react-router'
-import { store } from './flux'
 import history from './history'
 
 class Main extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = store.getState()
-
-        this._update = this.update.bind(this)
-    }
-    componentDidMount() {
-        store.listen(this._update)
-    }
-    componentWillUnmount() {
-        store.unlisten(this._update)
-    }
-    update() {
-        this.setState(store.getState())
-    }
     render() {
         return (
             <div>
                 <div className="layout-container">
                     <div className="layout-bar">
-                        <Header mobileNavOpen={this.state.mobileNavOpen} />
+                        <Header />
                     </div>
                     <div className="layout-content">
                         <BlocksContainer>

@@ -4,13 +4,13 @@ import React, { Component } from 'react'
 import { findDOMNode } from 'react-dom'
 import { Link } from 'react-router'
 import classnames from 'classnames'
-import { actions } from '../flux'
 
 export default class Header extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
+            mobileNavOpen: false,
             showDrawerBackdrop: false
         }
 
@@ -22,27 +22,34 @@ export default class Header extends Component {
     componentWillUnmount() {
         findDOMNode(this.refs.navUl).removeEventListener('transitionend', this._drawerTransitionEnd)
     }
-    componentWillReceiveProps(nextProps) {
-        if (!this.props.mobileNavOpen && nextProps.mobileNavOpen) {
-            this.setState({showDrawerBackdrop: true})
-        }
-    }
     drawerTransitionEnd() {
-        if (!this.props.mobileNavOpen && this.state.showDrawerBackdrop) {
+        if (!this.state.mobileNavOpen && this.state.showDrawerBackdrop) {
             this.setState({
                 showDrawerBackdrop: false
             })
         }
     }
     toggleDrawer() {
-        actions.toggleMobileNav()
+        if (this.state.mobileNavOpen) { // then close
+            this.setState({
+                mobileNavOpen: false
+            })
+            document.body.classList.remove('no-scroll')
+        } else { // open
+            this.setState({
+                mobileNavOpen: true,
+                showDrawerBackdrop: true
+            })
+            document.body.classList.add('no-scroll')
+        }
     }
     handleNavClick(e) {
+        // if backdrop was clicked then close, otherwise ignore
         if (
-            this.props.mobileNavOpen
+            this.state.mobileNavOpen
             && e.target.classList.contains('nav')
         ) {
-            actions.closeMobileNav()
+            this.setState({mobileNavOpen: false})
         }
     }
     render() {
@@ -57,7 +64,7 @@ export default class Header extends Component {
                     className={classnames([
                         'nav',
                         {
-                            'open': this.props.mobileNavOpen,
+                            'open': this.state.mobileNavOpen,
                             'show-backdrop': this.state.showDrawerBackdrop
                         }
                     ])}>
