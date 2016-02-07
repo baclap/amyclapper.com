@@ -1,0 +1,38 @@
+@import 'mixins';
+
+.slider {
+    .fit();
+
+    .slider-content {
+        .fit(50px);
+        top: 0;
+        bottom: 25px;
+        overflow: hidden;
+    }
+
+    .left-arrow, .right-arrow {
+        width: 50px;
+        position: absolute;
+        top: 0;
+        bottom: 25px;
+        .center-content();
+
+        button:disabled {
+            display: none;
+        }
+    }
+
+    .left-arrow {
+        left: 0;
+    }
+
+    .right-arrow {
+        right: 0;
+    }
+}
+
+.slide {
+    .fit();
+    overflow: auto;
+    transition: transform 0.2s ease-in-out;
+}

@@ -4,7 +4,8 @@ import Block from './components/block'
 import BlocksContainer from './components/blocks-container'
 import Footer from './components/footer'
 import Header from './components/header'
-import Popup from './components/popup'
+
+import RetailDesign from './homepage/popups/retail-design'
 
 import classnames from 'classnames'
 import createBrowserHistory from 'history/lib/createBrowserHistory'
@@ -62,7 +63,7 @@ class Main extends Component {
 render((
     <Router history={createBrowserHistory()}>
         <Route path="/" component={Main}>
-            <Route path="section" component={Popup} />
+            <Route path="section" component={RetailDesign} />
         </Route>
     </Router>
 ), document.querySelector('#app'))

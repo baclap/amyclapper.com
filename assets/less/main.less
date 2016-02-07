@@ -6,6 +6,10 @@ body {
     line-height: 1.2;
     background: url('/img/temp-bg.jpg'); // TODO replace with real image
     background-size: cover;
+
+    &.no-scroll {
+        overflow: hidden;
+    }
 }
 
 a {
@@ -20,7 +24,7 @@ a {
 }
 
 .layout-container {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
