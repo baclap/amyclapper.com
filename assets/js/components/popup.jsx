@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react'
 import { Link } from 'react-router'
+import history from '../history'
 
 export default class Popup extends Component {
     componentDidMount() {
@@ -12,7 +13,7 @@ export default class Popup extends Component {
     }
     handleOuterClick(e) {
         if (e.target === this.refs.container) {
-            this.props.history.pushState('/')
+            history.pushState('/')
         }
     }
     render() {

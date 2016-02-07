@@ -8,11 +8,11 @@ import Header from './components/header'
 import RetailDesign from './homepage/popups/retail-design'
 
 import classnames from 'classnames'
-import createBrowserHistory from 'history/lib/createBrowserHistory'
 import React, { Component } from 'react'
 import { render, findDOMNode } from 'react-dom'
 import { Router, Route } from 'react-router'
 import { store } from './flux'
+import history from './history'
 
 class Main extends Component {
     constructor(props) {
@@ -61,7 +61,7 @@ class Main extends Component {
 }
 
 render((
-    <Router history={createBrowserHistory()}>
+    <Router history={history}>
         <Route path="/" component={Main}>
             <Route path="section" component={RetailDesign} />
         </Route>
