@@ -36,3 +36,25 @@
     overflow: auto;
     transition: transform 0.2s ease-in-out;
 }
+
+@media @extra-small {
+    .slider {
+
+        .slider-content {
+            .fit(50px);
+            top: 0;
+            right: 10px;
+            left: 10px;
+            bottom: 50px;
+            overflow: hidden;
+        }
+
+        .left-arrow, .right-arrow {
+            width: 50%;
+            height: 50px;
+            position: absolute;
+            top: auto;
+            bottom: 0;
+        }
+    }
+}
